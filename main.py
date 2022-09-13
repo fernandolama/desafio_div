@@ -56,8 +56,8 @@ while True:
    
             while opcao_cadastro == 'b':
                 print('A lista de produtos cadastrados é: \n')
-                for produto, preco in list
-                print(f'rod.keys())
+                for produto, preco in list:
+                    print(f'rod.keys()')
 
             while opcao_cadastro == 'c':
                 print("Produtos cadastrados: \n", listProd.keys())
