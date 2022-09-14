@@ -120,23 +120,35 @@ while True:
             if opcao_venda == 'a':
                 print("Produtos disponíveis: \n")
                 for produto in listProd:
-                    print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
+                    print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und\n')
 
                 p = input("Digite o nome do produto que deseja comprar: \n")
+                total = 0
+                v = 0
 
-                for p in range(len(listProd)):
-                    for v in range(len(listPreco)):
-                        valorTotal += v
-                        print("Produto adicionado: ", str(p),
-                        "Preço do produto: R$", float(v), 
-                        "Valor total da compra: R$", valorTotal)
+                while p not in listProd[produto]:
+                    p = input(print("Produto não encontrado. Digite um item válido: \n"))
 
-                    print("""
-                    a) Adicionar mais produtos ao carrinho;
-                    b) Finalizar a compra.""")
+                if p in listProd[produto]:
+                    q = int(input("Digite a quantidade a ser comprada: \n"))
+
+                    while q > listQtde[produto]:
+                        print("A quantidade informada deve ser igual ou menor do que a quantidade disponível.\n")
+                        q = input(print("Digite uma quantidade válida: \n"))
+
+                    if q <= listQtde[produto]:
+                        v += q * float(listPreco[produto])
+                        total += v
+
+                        print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
+                        opçao = int(input(print("""Deseja adicionar mais algum item?
+                                1 - Sim
+                                2 - Não""")))
+                        if opçao == 1:
+                            continue
+                        else:
+                            break
                 
-                    opcao_venda = input('Escolha uma opção: \n').lower()
-
             elif opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", valorTotal)
                 opçao_posVenda = input('''\nDeseja retornar ao menu inicial?
@@ -151,8 +163,6 @@ while True:
                     print("Sessão finalizada.")
                     break
 
-            elif opcao_venda == 'b':
-                pass
             elif opcao_venda == 'c':
                 continue
             elif opcao_venda not in('a','b','c'):
