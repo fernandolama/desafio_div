@@ -114,8 +114,6 @@ while True:
 
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
-            
-            valorTotal = 0
 
             if opcao_venda == 'a':
                 print("Produtos disponíveis: \n")
@@ -127,30 +125,30 @@ while True:
                 v = 0
 
                 while p not in listProd[produto]:
-                    p = input(print("Produto não encontrado. Digite um item válido: \n"))
+                    p = input("Produto não encontrado. Digite um item válido: \n")
 
                 if p in listProd[produto]:
                     q = int(input("Digite a quantidade a ser comprada: \n"))
 
                     while q > listQtde[produto]:
                         print("A quantidade informada deve ser igual ou menor do que a quantidade disponível.\n")
-                        q = input(print("Digite uma quantidade válida: \n"))
+                        q = input("Digite uma quantidade válida: \n")
 
                     if q <= listQtde[produto]:
                         v += q * float(listPreco[produto])
                         total += v
 
                         print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
-                        opçao = int(input(print("""Deseja adicionar mais algum item?
+                        opçao = int(input("""Deseja adicionar mais algum item?
                                 1 - Sim
-                                2 - Não""")))
+                                2 - Não"""))
                         if opçao == 1:
                             continue
                         else:
-                            break
+                            pass
                 
             elif opcao_venda == 'b':
-                print("Compra finalizada!\nTotal da compra: R$", valorTotal)
+                print("Compra finalizada!\nTotal da compra: R$", total)
                 opçao_posVenda = input('''\nDeseja retornar ao menu inicial?
                 1 - Sim
                 2 - Não
