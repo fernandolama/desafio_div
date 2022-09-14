@@ -115,13 +115,14 @@ while True:
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
 
-            if opcao_venda == 'a':
+            total = 0
+
+            while opcao_venda == 'a':
                 print("Produtos disponíveis: \n")
                 for produto in listProd:
                     print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und\n')
 
                 p = input("Digite o nome do produto que deseja comprar: \n")
-                total = 0
                 v = 0
 
                 while p not in listProd[produto]:
@@ -141,25 +142,14 @@ while True:
                         print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
                         opçao = int(input("""Deseja adicionar mais algum item?
                                 1 - Sim
-                                2 - Não"""))
+                                2 - Não\n"""))
                         if opçao == 1:
                             continue
                         else:
-                            pass
+                            break
                 
-            elif opcao_venda == 'b':
+            if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
-                opçao_posVenda = input('''\nDeseja retornar ao menu inicial?
-                1 - Sim
-                2 - Não
-                ''')
-
-                if opçao_posVenda == 1:
-                    continue
-                
-                if opçao_posVenda == 2:
-                    print("Sessão finalizada.")
-                    break
 
             elif opcao_venda == 'c':
                 continue
