@@ -42,7 +42,7 @@ while True:
                 if preco.replace('.','',1).isdigit():
                     preco = float(preco)
                     if preco <= 0:
-                        input('Valor inválide. Aperte "Enter" para...')
+                        input('Valor inválido. Aperte "Enter" para...')
                 else:
                     print('Apenas números positivos são admitidos no cadastro de preços de produtos.')
                     input('Aperte "Enter" para...')
