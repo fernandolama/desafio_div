@@ -59,7 +59,7 @@ while True:
                     input('Aperte "Enter" para retornar ao Menu de Navegação.')
                 listQtde[produto] = qtde
                 """
-                novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+                #novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
                 if novo_prod == 'n':
                     pass
