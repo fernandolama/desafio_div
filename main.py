@@ -146,7 +146,7 @@ while True:
                         if opçao == 1:
                             continue
                         else:
-                            pass
+                            break
                 
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
