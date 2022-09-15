@@ -188,8 +188,10 @@ while True:
             opcao_extrato = input('Escolha uma opção: ').lower()
             
             if opcao_extrato == 'a':
+                os.system('cls')
                 pass
             elif opcao_extrato == 'b':
+                os.system('cls')
                 continue
             elif opcao_extrato not in('a','b'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
