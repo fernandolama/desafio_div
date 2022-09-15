@@ -1,7 +1,10 @@
+import os
+
 listProd = {}
 listPreco = {}
 listQtde = {}
 
+total = 0
 
 while True:
     print(
@@ -23,6 +26,7 @@ while True:
                               """)
     opcao = input("""
                         INFORME A OPÇÃO DESEJADA: """)
+    os.system('cls')
     match opcao:
         case '1':
             print("""
@@ -33,6 +37,7 @@ while True:
             d) Voltar ao menu anterior.​
             """)
             opcao_cadastro = input('Escolha uma opção: ').lower()
+            os.system('cls')
             if opcao_cadastro == 'a':
                 
                 produto = input('Digite o produto a ser cadastrado: ').lower()
@@ -115,7 +120,7 @@ while True:
             """)
             opcao_venda = input('Escolha uma opção: ').lower()
 
-            total = 0
+            os.system('cls')
 
             while opcao_venda == 'a':
                 print("Produtos disponíveis: \n")
@@ -133,13 +138,14 @@ while True:
 
                     while q > listQtde[produto]:
                         print("A quantidade informada deve ser igual ou menor do que a quantidade disponível.\n")
-                        q = input("Digite uma quantidade válida: \n")
+                        q = int(input("Digite uma quantidade válida: \n"))
 
                     if q <= listQtde[produto]:
                         v += q * float(listPreco[produto])
                         total += v
 
                         print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
+                        
                         opçao = int(input("""Deseja adicionar mais algum item?
                                 1 - Sim
                                 2 - Não\n"""))
@@ -150,6 +156,7 @@ while True:
                 
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
+                input('Aperte "Enter" para retornar ao Menu de Navegação.')
 
             elif opcao_venda == 'c':
                 continue
