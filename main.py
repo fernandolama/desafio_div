@@ -22,7 +22,7 @@ while True:
                                 4-Sair 
                               """)
     opcao = input("""
-                        iNFORME A OPÇÃO DESEJADA: """)
+                        INFORME A OPÇÃO DESEJADA: """)
     match opcao:
         case '1':
             print("""
