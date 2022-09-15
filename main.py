@@ -59,9 +59,11 @@ while True:
                     qtde = int(qtde)
                     if qtde <= 0:
                         input('Quantidade inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
+                        os.system('cls')
                 else:
                     print('Apenas números positivos são admitidos no cadastro de quantidades de produtos.')
                     input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                    os.system('cls')
                 listQtde[produto] = qtde
                 """
                 #novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
@@ -70,7 +72,8 @@ while True:
                     pass
                 if novo_prod != 's':
                     novo_prod=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')
-                """                   
+                """
+            
             elif opcao_cadastro == 'b':
                 if len(listProd) == 0:
                     print('Não há produtos cadastrados!')
@@ -79,7 +82,8 @@ while True:
                     print('A lista de produtos cadastrados é: \n')
                     for produto in listProd:
                         print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
-                input('Aperte "Enter" para retornar ao Menu de Navegação.')            
+                input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                os.system('cls')            
 
             elif opcao_cadastro == 'c':
                 if len(listProd) == 0:
@@ -96,6 +100,7 @@ while True:
                     listPreco.pop(delete)
                     listQtde.pop(delete)
                 input('Aperte "Enter" para continuar.')
+                os.system('cls')
 
                 '''del_outro = input('Deseja deletar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
@@ -105,9 +110,12 @@ while True:
                     del_outro=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')'''
 
             elif opcao_cadastro == 'd':
+                os.system('cls')
                 continue
+            
             elif opcao_cadastro not in('a','b','c','d'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
+                os.system('cls')
 
         case '2':
             print("""
@@ -127,11 +135,11 @@ while True:
                 for produto in listProd:
                     print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und\n')
 
-                p = input("Digite o nome do produto que deseja comprar: \n")
+                p = input("Digite o nome do produto que deseja comprar: \n").lower()
                 v = 0
 
                 while p not in listProd[produto]:
-                    p = input("Produto não encontrado. Digite um item válido: \n")
+                    p = input("Produto não encontrado. Digite um item válido: \n").lower()
 
                 if p in listProd[produto]:
                     q = int(input("Digite a quantidade a ser comprada: \n"))
@@ -150,18 +158,23 @@ while True:
                                 1 - Sim
                                 2 - Não\n"""))
                         if opçao == 1:
+                            os.system('cls')
                             continue
                         else:
+                            os.system('cls')
                             break
                 
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
                 input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                os.system('cls')
 
             elif opcao_venda == 'c':
+                os.system('cls')
                 continue
             elif opcao_venda not in('a','b','c'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
+                os.system('cls')
 
                 
         case '3':
@@ -180,6 +193,7 @@ while True:
                 continue
             elif opcao_extrato not in('a','b'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
+                os.system('cls')
 
                         
         case '4':
@@ -188,3 +202,4 @@ while True:
         
         case _:
             input('Opção Inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
+            os.system('cls')
