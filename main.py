@@ -1,4 +1,5 @@
 import os
+from xml.sax.handler import property_declaration_handler
 
 listProd = {}
 listPreco = {}
@@ -7,6 +8,7 @@ listQtde = {}
 total = 0
 
 while True:
+# Tela de boas-vindas/Menu de navegação
     print(
     """
 ╠══============================ BOAS-VINDAS =================================══╣
@@ -29,6 +31,7 @@ while True:
     os.system('cls')
     match opcao:
         case '1':
+            #Menu de cadastro
             print("""
             Menu de Cadastro:​
             a) Cadastrar produtos;
@@ -39,10 +42,11 @@ while True:
             opcao_cadastro = input('Escolha uma opção: ').lower()
             os.system('cls')
             if opcao_cadastro == 'a':
-                
+                #Cadastrar produto
                 produto = input('Digite o produto a ser cadastrado: ').lower()
                 listProd[produto] = produto
                 
+                #Cadastrar preço
                 preco = (input('Digite o preço do produto, com "." separando os centavos: R$ '))
                 if preco.replace('.','',1).isdigit():
                     preco = float(preco)
@@ -54,6 +58,7 @@ while True:
                     continue
                 listPreco[produto] = preco
                 
+                #Cadastrar quantidade
                 qtde = input('Digite a quantidade do produto: ')
                 if qtde.isdigit():
                     qtde = int(qtde)
@@ -63,10 +68,10 @@ while True:
                 else:
                     print('Apenas números positivos são admitidos no cadastro de quantidades de produtos.')
                     input('Aperte "Enter" para retornar ao Menu de Navegação.')
-                    os.system('cls')
                 listQtde[produto] = qtde
+                os.system('cls')
                 """
-                #novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+                novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
                 if novo_prod == 'n':
                     pass
@@ -82,7 +87,9 @@ while True:
                     print('A lista de produtos cadastrados é: \n')
                     for produto in listProd:
                         print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
-                input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                        print()
+                
+                input('\nAperte "Enter" para retornar ao Menu de Navegação.')
                 os.system('cls')            
 
             elif opcao_cadastro == 'c':
@@ -95,10 +102,21 @@ while True:
                     for produto in listProd:
                         print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
                 
-                    delete = input('Digite o produto a ser deletado: ').lower()
-                    listProd.pop(delete)
-                    listPreco.pop(delete)
-                    listQtde.pop(delete)
+                    prod_del = input('Digite o produto a ser deletado: ').lower()
+                    qtde_del = int(input('Digite a quantidade de itens a serem deletados: '))
+                    
+                    while qtde_del > listQtde[prod_del]:
+                        qtde_del = int(input('A quantidade digite é maior do que a quantidade em estoque. Digite uma quantidade menor: '))
+
+                    if qtde_del <= listQtde[prod_del] and qtde_del > 0:
+                        novaqtde = listQtde[prod_del] - qtde_del
+                        listQtde.update({prod_del: novaqtde})
+                    
+                    if listQtde[prod_del] == 0:
+                        listProd.pop(prod_del)
+                        listPreco.pop(prod_del)
+                    
+                print(qtde_del,'unidades do produto',prod_del,'foram deletadas com sucesso!')
                 input('Aperte "Enter" para continuar.')
                 os.system('cls')
 
