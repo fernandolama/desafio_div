@@ -140,15 +140,23 @@ while True:
                 input('\nAperte "Enter" para retornar ao Menu de Navegação.')
                 os.system('cls')            
 
-            if opcao_cadastro == 'c':
-               deletar_produto()
+            while opcao_cadastro == 'c':
+                deletar_produto()
 
-            '''del_outro = input('Deseja deletar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+                del_outro=input('Deseja deletar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
-                while del_outro == 'n':
-                    pass
-                if del_outro != 's':
-                    del_outro=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')'''
+                if del_outro == 's':
+                    continue
+                if del_outro == 'n':
+                    input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                    break
+                while del_outro != 's' and del_outro != 'n':
+                    novo_prod=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')
+                if del_outro =='s':
+                    continue
+                if del_outro =='n':
+                    input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                    break
 
             if opcao_cadastro == 'd':
                 os.system('cls')
