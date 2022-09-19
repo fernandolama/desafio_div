@@ -1,9 +1,76 @@
+#Setup
 import os
-from xml.sax.handler import property_declaration_handler
 
+#Dicionários de produtos, preço e quantidade
 listProd = {}
 listPreco = {}
 listQtde = {}
+
+#FUNÇÕES
+#Função de cadastro de produto
+def cadastro_produto():
+    #Cadastrar produto
+    produto = input('Digite o produto a ser cadastrado: ').lower()
+    listProd[produto] = produto
+                
+    #Cadastrar preço
+    preco = input('Digite o preço do produto, com "." separando os centavos: R$ ')
+    if preco.replace('.','',1).isdigit():
+        preco = float(preco)
+    else:
+        print('Valor inválido. Apenas números positivos são admitidos no cadastro de preços de produtos.')
+        print(f'O produto', produto, 'não pôde ser cadastrado.')
+        input('Aperte "Enter" para continuar.')
+        listProd.clear()
+        os.system('cls')
+        return
+    listPreco[produto] = preco         
+    
+    #Cadastrar quantidade
+    qtde = input('Digite a quantidade do produto: ')
+    if qtde.isdigit():
+        qtde = int(qtde)
+        while qtde <= 0:
+            qtde = int(input('Quantidade inválida. Digite um valor maior do que 1 para a quantidade do produto: '))
+        
+    else:
+        print('Valor inválido. Apenas números positivos são admitidos no cadastro de quantidades de produtos.')
+        print(f'O produto', produto, 'não pôde ser cadastrado.')
+        input('Aperte "Enter" para continuar.')
+        listProd.clear()
+        listPreco.clear()
+        os.system('cls')
+        return
+    listQtde[produto] = qtde
+    os.system('cls')
+#Função de deletar produtos
+def deletar_produto():
+    if len(listProd) == 0:
+        print('Não há produtos cadastrados!')
+                    
+    else:
+        print('A lista de produtos cadastrados é: \n')
+                
+        for produto in listProd:
+            print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
+                
+        prod_del = input('Digite o produto a ser deletado: ').lower()
+        qtde_del = int(input('Digite a quantidade de itens a serem deletados: '))
+                    
+        while qtde_del > listQtde[prod_del]:
+            qtde_del = int(input('A quantidade digite é maior do que a quantidade em estoque. Digite uma quantidade menor: '))
+
+        if qtde_del <= listQtde[prod_del] and qtde_del > 0:
+            novaqtde = listQtde[prod_del] - qtde_del
+            listQtde.update({prod_del: novaqtde})
+                    
+        if listQtde[prod_del] == 0:
+            listProd.pop(prod_del)
+            listPreco.pop(prod_del)
+                    
+    print(qtde_del,'unidades do produto',prod_del,'foram deletadas com sucesso!')
+    input('Aperte "Enter" para continuar.')
+    os.system('cls')
 
 total = 0
 
@@ -41,45 +108,26 @@ while True:
             """)
             opcao_cadastro = input('Escolha uma opção: ').lower()
             os.system('cls')
-            if opcao_cadastro == 'a':
-                #Cadastrar produto
-                produto = input('Digite o produto a ser cadastrado: ').lower()
-                listProd[produto] = produto
-                
-                #Cadastrar preço
-                preco = (input('Digite o preço do produto, com "." separando os centavos: R$ '))
-                if preco.replace('.','',1).isdigit():
-                    preco = float(preco)
-                    if preco <= 0:
-                        input('Valor inválido. Aperte "Enter" para...')
-                else:
-                    print('Apenas números positivos são admitidos no cadastro de preços de produtos.')
-                    input('Aperte "Enter" para...')
-                    continue
-                listPreco[produto] = preco
-                
-                #Cadastrar quantidade
-                qtde = input('Digite a quantidade do produto: ')
-                if qtde.isdigit():
-                    qtde = int(qtde)
-                    if qtde <= 0:
-                        input('Quantidade inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
-                        os.system('cls')
-                else:
-                    print('Apenas números positivos são admitidos no cadastro de quantidades de produtos.')
-                    input('Aperte "Enter" para retornar ao Menu de Navegação.')
-                listQtde[produto] = qtde
-                os.system('cls')
-                """
+            while opcao_cadastro == 'a':
+                cadastro_produto()
+
                 novo_prod=input('Deseja cadastrar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
-                if novo_prod == 'n':
-                    pass
-                if novo_prod != 's':
+                if novo_prod == 's':
+                    continue
+                elif novo_prod == 'n':
+                    input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                    break
+                while novo_prod != 's' and novo_prod != 'n':
                     novo_prod=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')
-                """
+                if novo_prod =='s':
+                    continue
+                if novo_prod =='n':
+                    input('Aperte "Enter" para retornar ao Menu de Navegação.')
+                    break
+                
             
-            elif opcao_cadastro == 'b':
+            if opcao_cadastro == 'b':
                 if len(listProd) == 0:
                     print('Não há produtos cadastrados!')
                 
@@ -92,46 +140,21 @@ while True:
                 input('\nAperte "Enter" para retornar ao Menu de Navegação.')
                 os.system('cls')            
 
-            elif opcao_cadastro == 'c':
-                if len(listProd) == 0:
-                    print('Não há produtos cadastrados!')
-                    
-                else:
-                    print('A lista de produtos cadastrados é: \n')
-                
-                    for produto in listProd:
-                        print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und')
-                
-                    prod_del = input('Digite o produto a ser deletado: ').lower()
-                    qtde_del = int(input('Digite a quantidade de itens a serem deletados: '))
-                    
-                    while qtde_del > listQtde[prod_del]:
-                        qtde_del = int(input('A quantidade digite é maior do que a quantidade em estoque. Digite uma quantidade menor: '))
+            if opcao_cadastro == 'c':
+               deletar_produto()
 
-                    if qtde_del <= listQtde[prod_del] and qtde_del > 0:
-                        novaqtde = listQtde[prod_del] - qtde_del
-                        listQtde.update({prod_del: novaqtde})
-                    
-                    if listQtde[prod_del] == 0:
-                        listProd.pop(prod_del)
-                        listPreco.pop(prod_del)
-                    
-                print(qtde_del,'unidades do produto',prod_del,'foram deletadas com sucesso!')
-                input('Aperte "Enter" para continuar.')
-                os.system('cls')
-
-                '''del_outro = input('Deseja deletar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
+            '''del_outro = input('Deseja deletar mais algum produto? Digite S para "Sim" ou N para "Não": ' ).lower()
                 
                 while del_outro == 'n':
                     pass
                 if del_outro != 's':
                     del_outro=input('Opção inválida. Digite S para "Sim" ou N para "Não": ')'''
 
-            elif opcao_cadastro == 'd':
+            if opcao_cadastro == 'd':
                 os.system('cls')
                 continue
             
-            elif opcao_cadastro not in('a','b','c','d'):
+            if opcao_cadastro not in('a','b','c','d'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
                 os.system('cls')
 
