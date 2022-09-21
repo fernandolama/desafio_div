@@ -1,5 +1,6 @@
 #SETUP
 import os
+from biblioteca.dicionarios import listProd, listPreco, listQtde
 
 #FUNÇÕES
 #Função de cadastro de produto
