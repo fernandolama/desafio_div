@@ -2,6 +2,19 @@
 import os
 from biblioteca.funcoes_menu_cadastro import cadastro_produto, deletar_produto
 from biblioteca.dicionarios import listProd, listPreco, listQtde
+import pandas as pd
+
+produto = {}
+preco = {}
+qtde = {}
+
+'''df = pd.DataFrame({
+    produto : ,
+    preco : ,
+    qtde : 
+})'''
+
+print(df)
 
 while True:
 # Tela de boas-vindas/Menu de navegação
