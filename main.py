@@ -143,6 +143,7 @@ while True:
 
                     if q <= listQtde[produto]:
                         v += q * float(listPreco[produto])
+                        listQtde[produto] -= q
                         total += v
 
                         print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
