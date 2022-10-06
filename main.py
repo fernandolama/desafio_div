@@ -124,8 +124,45 @@ while True:
             total = 0
 
             while opcao_venda == 'a':
+<<<<<<< HEAD
                 venda_produto()
                                 
+=======
+                print("Produtos disponíveis: \n")
+                for produto in listProd:
+                    print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und\n')
+
+                p = input("Digite o nome do produto que deseja comprar: \n").lower()
+                v = 0
+
+                while p not in listProd[produto]:
+                    p = input("Produto não encontrado. Digite um item válido: \n").lower()
+
+                if p in listProd[produto]:
+                    q = int(input("Digite a quantidade a ser comprada: \n"))
+
+                    while q > listQtde[produto]:
+                        print("A quantidade informada deve ser igual ou menor do que a quantidade disponível.\n")
+                        q = int(input("Digite uma quantidade válida: \n"))
+
+                    if q <= listQtde[produto]:
+                        v += q * float(listPreco[produto])
+                        listQtde[produto] -= q
+                        total += v
+
+                        print("O seguinte item foi adicionado ao carrinho:\nProduto: ", p, "\nQuantidade: ", q, "\nPreço: R$", v)
+                        
+                        opçao = int(input("""Deseja adicionar mais algum item?
+                                1 - Sim
+                                2 - Não\n"""))
+                        if opçao == 1:
+                            os.system('cls')
+                            continue
+                        else:
+                            os.system('cls')
+                            break
+                
+>>>>>>> f6b2594537232196baf57517034da27ea13ebee4
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
                 input('Aperte "Enter" para retornar ao Menu de Navegação.')
