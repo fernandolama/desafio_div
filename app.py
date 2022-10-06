@@ -22,13 +22,9 @@ def cad():
     #dataframe
     df.loc[produto] = [preco, quantidade]
     df.to_csv('catalogo.csv')
-    
+    df.to_html('catalogo.html')
     print(df)
     return redirect('static/cadastrado.html')
-
-#@app.route('/list')
-#def list():  
-    #return produtos
 
 @app.route('/del')
 def delet():
@@ -60,7 +56,6 @@ def delet():
     print(qtde_del,'unidades do produto',prod_del,'foram deletadas com sucesso!')
     input('Aperte "Enter" para continuar.')
     os.system('cls')
-
 
 if __name__ == "__main__":
     app.run(debug=True)
