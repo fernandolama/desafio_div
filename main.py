@@ -1,6 +1,6 @@
 #SETUP
 import os
-from biblioteca.funcoes_menu_cadastro import cadastro_produto, deletar_produto
+from biblioteca.funcoes import *
 from biblioteca.dicionarios import listProd, listPreco, listQtde
 import pandas as pd
 
@@ -12,9 +12,9 @@ qtde = {}
     produto : ,
     preco : ,
     qtde : 
-})'''
+})
 
-print(df)
+print(df)'''
 
 while True:
 # Tela de boas-vindas/Menu de navegação
@@ -104,7 +104,7 @@ while True:
                 os.system('cls')
                 continue
             
-            if opcao_cadastro not in('a','b','c','d'):
+            elif opcao_cadastro not in('a','b','c','d'):
                 input('Opção inválida. Aperte "Enter" para retornar ao Menu de Navegação.')
                 os.system('cls')
 
@@ -124,6 +124,10 @@ while True:
             total = 0
 
             while opcao_venda == 'a':
+<<<<<<< HEAD
+                venda_produto()
+                                
+=======
                 print("Produtos disponíveis: \n")
                 for produto in listProd:
                     print(f'{listProd[produto]}        R${listPreco[produto]}            {listQtde[produto]} und\n')
@@ -158,6 +162,7 @@ while True:
                             os.system('cls')
                             break
                 
+>>>>>>> f6b2594537232196baf57517034da27ea13ebee4
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
                 input('Aperte "Enter" para retornar ao Menu de Navegação.')
