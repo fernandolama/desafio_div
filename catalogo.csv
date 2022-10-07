@@ -1,4 +1,4 @@
-produto,preco,quantidade
-banana,0.21,14
-goiaba,0.17,20
-arroz,5,23
+,produto,preço,quantidade
+0,arroz,0.25,9
+1,goiaba,0.33,15
+2,banana,0.15,13
