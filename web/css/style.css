@@ -1,0 +1,224 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300&subset=latin-ext);
+
+/* Tornar fullscreen */
+body {
+    display: block;
+    margin: 0px;
+}
+
+/* Container da navbar */
+.navbar {
+    overflow: hidden;
+    background-color: #119251;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .logo {
+    display: inline-block;
+    vertical-align: center;
+    border: none;
+    outline: none;
+    padding: 0px 16px;
+    margin: 0; /* Vertical align em mobile */
+  }
+
+  #logo_img {
+    margin-top: 20px;
+  }
+
+  /* Links da navbar */
+  .navbar a {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 23px;
+    text-decoration: none;
+    float: left;
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0px;
+    height: 65.5px;
+  }
+
+  /* Exibir ites do menu lado a lado */
+  .menu .list-item {
+    display: inline-block;
+  }
+  
+  /* Container do dropdown */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 23px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Vertical align em mobile */
+    margin: 0; /* Vertical align em mobile */
+  }
+
+  /* Sinalização de dropdown */
+  .dropdown .dropbtn::after {
+    padding-left: 3px;
+	  content: ' ▾';
+  }
+  
+  /* Cor de fundo em links durante hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    transition: all .3s ease-in-out;
+    background-color: rgba(0,0,0,.2);
+  }
+  
+  /* Counteúdo escondido do dropdown */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links do dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Cor de fundo em links do dropdown durante hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Mostrar menus dropdown durante hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+    max-width: 200px;
+  }
+
+  /* Estilização dos formulários */
+  .formulario {
+    margin: 40px;
+    margin-top: 40px;
+  }
+
+  .field {
+    margin: 0 auto;
+    width: 500px;
+    border-color: #32ba76;
+    border-radius: 3px;
+    font-family: Montserrat;
+    padding: 20px;
+  }
+
+  .field legend {
+    font-weight: bold;
+    font-size: 20px;
+    color: #119251;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    margin: 10px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 3px;
+    border-color: #119251;
+    background-color: #119251;
+    display: inline-block;
+    padding: 10px;
+    font-family: Montserrat;
+    font-size: 14px;
+    color: white;
+  }
+
+  .button:hover {
+    transition: all .3s ease-in-out;
+    background-color: #0e7541;
+  }
+
+
+  .redirecionar {
+    margin: 40px;
+    margin-top: 40px;
+    font-family: Montserrat;
+  }
+
+  .redirecionar .texto {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: #0e7541;
+  }
+
+  .links {
+    margin: 40px;
+    margin-top: 40px;
+    font-family: Montserrat;
+  }
+
+  .links .texto {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: #0e7541;
+    padding: 85px;
+    line-height: 30px;
+  }
+
+  .title {
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+
+  .title h1 {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: bold;
+    color: #0e7541;
+  }
+
+  h2 {
+    margin-left: 96px;
+    padding-left: 40px;
+    font-family: Montserrat;
+    font-style: bold;
+    color: #0e7541;
+  }
+
+  p {
+    margin: 20px;
+    margin-left: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: Montserrat;
+  }
+
+  .membros{
+    margin: 20px;
+    margin-left: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    list-style-type: none;
+    font-family: Montserrat;
+  }
+
+  footer {
+    color: #555;
+    font-family: Montserrat, sans-serif;
+    font-size:12px;
+    margin-top:5em;
+    text-align:center;
+  }
