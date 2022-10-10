@@ -1,21 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>Organico's - # </title>
+    <link rel="stylesheet" href="..\web\css\style.css">
 </head>
 <body>
-    <form action="/cad" method="get">
-        <fieldset>
-            <legend>Quantidade de vendas de cada produto</legend>
-            <label for="campo1">Nome:</label>
-            <input type="text" name="produto" id="campo1" required placeholder="Digite o nome do produto">
-            <br><br>
-            <input type="submit" value="Enviar">
-            <button onclick="location.href='menu_cad.html'" type="button">Voltar</button>
-        </fieldset>
-    </form>
+    <header>
+        <nav class="navbar">
+  
+          <div class="logo">
+            <img id="logo_img" src="../web/img/logo.png" alt="Organico's - produtos orgânicos de verdade!">
+          </div>
+  
+          <ul class="menu">
+  
+            <li class="list-item">
+              <a href="../web/index.html">Home</a>
+            </li>
+  
+            <li class="list-item">
+            <a href="sobre.html">Sobre</a>
+            </li>
+  
+            <li class="list-item">
+              <div class="dropdown">
+                <button class="dropbtn">Cadastro</button>
+                  <div class="dropdown-content">
+                    <a href="cad.html">Cadastrar produtos</a>
+                    <a href="list.html">Ver produtos cadastrados</a>
+                    <a href="del.html">Deletar produtos</a>
+                  </div>
+              </div>
+            </li>
+  
+            <li class="list-item">
+              <div class="dropdown">
+                <button class="dropbtn">Vendas</button>
+                  <div class="dropdown-content">
+                    <a href="#">Adicionar ao carrinho</a>
+                    <a href="#">Remover do carrinho</a>
+                    <a href="#">Finalizar venda</a>
+                  </div>
+              </div>
+            </li>
+  
+            <li class="list-item">
+              <div class="dropdown">
+                <button class="dropbtn">Relatório</button>
+                  <div class="dropdown-content">
+                    <a href="#">Quantidade de vendas de cada produto</a>
+                    <a href="#">Dinheiro recebido - produto</a>
+                    <a href="#">Dinheiro recebido - total</a>
+                  </div>
+              </div>
+            </li>
+  
+            <li class="list-item">
+              <a href="#">Sair</a>
+            </li>
+  
+          </ul>
+        </nav>
+  
+        <img src="../web/img/header2.png" alt="Organico's - produtos orgânicos de verdade!" width="100%">
+      
+      </header>
+      <div class="formulario">
+        <form action="/cad" method="get">
+            <fieldset class="field">
+                <legend>| Quantidade de vendas de cada produto|</legend>
+                <label for="campo1">Nome:</label>
+                <input type="text" name="produto" id="campo1" required placeholder="Digite o nome do produto">
+                <br><br>
+                <input class="button" type="submit" value="Enviar">
+                <button class="button" onclick="location.href='menu_rel.html'" type="button">Voltar</button>
+            </fieldset>
+        </form>
+      </div>  
+      <footer>
+        <p class="main">Sistema Organico's | Grupo 03 | Projeto Div 2022</p>
+      </footer>
 </body>
 </html>
