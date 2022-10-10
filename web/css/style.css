@@ -70,7 +70,7 @@ body {
   /* Sinalização de dropdown */
   .dropdown .dropbtn::after {
     padding-left: 3px;
-	content: ' ▾';
+	  content: ' ▾';
   }
   
   /* Cor de fundo em links durante hover */
@@ -107,6 +107,112 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
     max-width: 200px;
+  }
+
+  /* Estilização dos formulários */
+  .formulario {
+    margin: 40px;
+    margin-top: 40px;
+  }
+
+  .field {
+    margin: 0 auto;
+    width: 500px;
+    border-color: #32ba76;
+    border-radius: 3px;
+    font-family: Montserrat;
+    padding: 20px;
+  }
+
+  .field legend {
+    font-weight: bold;
+    font-size: 20px;
+    color: #119251;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    margin: 10px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 3px;
+    border-color: #119251;
+    background-color: #119251;
+    display: inline-block;
+    padding: 10px;
+    font-family: Montserrat;
+    font-size: 14px;
+    color: white;
+  }
+
+  .button:hover {
+    transition: all .3s ease-in-out;
+    background-color: #0e7541;
+  }
+
+
+  .redirecionar {
+    margin: 40px;
+    margin-top: 40px;
+    font-family: Montserrat;
+  }
+
+  .redirecionar .texto {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: #0e7541;
+  }
+
+  .links {
+    margin: 40px;
+    margin-top: 40px;
+    font-family: Montserrat;
+  }
+
+  .links .texto {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: #0e7541;
+    padding: 85px;
+    line-height: 30px;
+  }
+
+  .title {
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+
+  .title h1 {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: bold;
+    color: #0e7541;
+  }
+
+  h2 {
+    margin-left: 96px;
+    padding-left: 40px;
+    font-family: Montserrat;
+    font-style: bold;
+    color: #0e7541;
+  }
+
+  p {
+    margin: 20px;
+    margin-left: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: Montserrat;
+  }
+
+  .membros{
+    margin: 20px;
+    margin-left: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    list-style-type: none;
+    font-family: Montserrat;
   }
 
   footer {

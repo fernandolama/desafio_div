@@ -1,30 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/del" method="get">
-        <fieldset>
-            <legend>Exclusão de Produto</legend>
-            <label for="campo1">Nome:</label>
-            <input type="text" name="prod_del" id="campo1" required placeholder="Digite o nome do produto">
-            <br><br>
-            <label for="campo2">Quantidade</label>
-            <input type="number" step="1" min="1" max="99999" name="qtde_del" id="campo3" required>
-            <br><br>
-            <input type="submit" value="Enviar">
-            <button onclick="location.href='menu_cad.html'" type="button">Voltar</button>
 
+<html lang pt-br>
+ 
+  <head>
+    <meta charset="utf-8">
+    <title>Organico's - Deletar produto</title>
+    <link rel="stylesheet" href="../web/css/style.css">
+  </head>
+    
+  <body>
+    <header>
+      <nav class="navbar">
 
+        <div class="logo">
+          <img id="logo_img" src="../web/img/logo.png" alt="Organico's - produtos orgânicos de verdade!">
+        </div>
 
+        <ul class="menu">
 
+          <li class="list-item">
+            <a href="../web/index.html">Home</a>
+          </li>
 
+          <li class="list-item">
+          <a href="sobre.html">Sobre</a>
+          </li>
 
-        </fieldset>
-    </form>
-</body>
+          <li class="list-item">
+            <div class="dropdown">
+              <button class="dropbtn">Cadastro</button>
+                <div class="dropdown-content">
+                  <a href="cad.html">Cadastrar produtos</a>
+                  <a href="list.html">Ver produtos cadastrados</a>
+                  <a href="del.html">Deletar produtos</a>
+                </div>
+            </div>
+          </li>
+
+          <li class="list-item">
+            <div class="dropdown">
+              <button class="dropbtn">Vendas</button>
+                <div class="dropdown-content">
+                  <a href="#">Adicionar ao carrinho</a>
+                  <a href="#">Remover do carrinho</a>
+                  <a href="#">Finalizar venda</a>
+                </div>
+            </div>
+          </li>
+
+          <li class="list-item">
+            <div class="dropdown">
+              <button class="dropbtn">Relatório</button>
+                <div class="dropdown-content">
+                  <a href="#">Quantidade de vendas de cada produto</a>
+                  <a href="#">Dinheiro recebido - produto</a>
+                  <a href="#">Dinheiro recebido - total</a>
+                </div>
+            </div>
+          </li>
+
+          <li class="list-item">
+            <a href="#">Sair</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <img src="../web/img/header2.png" alt="Organico's - produtos orgânicos de verdade!" width="100%">
+
+    </header>
+
+    <div class="formulario">
+      <form action="/del" method="get">
+          <fieldset class="field">
+              <legend>| Excluir produto |</legend>
+              <label for="campo1">Nome:</label>
+              <input type="text" name="prod_del" id="campo1" required placeholder="Digite o nome do produto">
+              <br><br>
+              <label for="campo2">Quantidade a deletar:</label>
+              <input type="number" step="1" min="1" max="99999" name="qtde_del" id="campo3" required>
+              <br><br>
+              <input class="button" type="submit" value="Enviar">
+              <button class="button" onclick="location.href='menu_cad.html'" type="button">Voltar</button>
+          </fieldset>
+      </form>
+    </div>
+
+    <footer>
+      <p class="main">Sistema Organico's | Grupo 03 | Projeto Div 2022</p>
+    </footer>
+
+  </body>
 </html>
