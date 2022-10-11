@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request, redirect
+from flask import request, redirect, render_template
 import pandas as pd
 
 app = Flask(__name__)
@@ -8,8 +8,8 @@ produtos = {} #{produto: [valor, quantidade]}
 precos = {}
 quantidades = {}
 
-df = pd.read_csv('catalogo.csv', index_col='produto')
-print(df)
+catalogo = pd.read_csv('catalogo.csv', index_col='produto')
+print(catalogo)
 
 @app.route("/")
 def index():
@@ -26,32 +26,16 @@ def cad():
     #dicionário
     produtos[produto] = [preco, quantidade]
     #dataframe
-    df.loc[produto] = [preco, quantidade]
+    catalogo.loc[produto] = [preco, quantidade]
     
-    df.to_csv('catalogo.csv')
-    df.to_html('catalogo.html')
-    print(df)
+    catalogo.to_csv('catalogo.csv')
+    catalogo.to_html('catalogo.html')
+    print(catalogo)
     return redirect('static/cadastrado.html')
 
-# @app.route("/cad2")
-# def cad2():
-#     argumentos = request.args.to_dict()
-    
-#     produtos[argumentos['produto']] = argumentos['produto'] #arroz
-#     precos[argumentos['produto']] = float(argumentos['preco']) #10
-#     quantidades[argumentos['produto']] = int(argumentos['quantidade']) #10
-
-#     print(produtos, precos, quantidades)
-#     #return produtos
-#     df=pd.DataFrame({
-#         'produto' : produtos.values(),
-#         'preço' : precos.values(),
-#         'quantidade' : quantidades.values()
-#     })
-#     print(df)
-#     df.to_csv('catalogo.csv')
-#     df.to_html('catalogo.html')
-#     return redirect('static/cadastrado.html')
+@app.route('/lista')
+def lista():
+    return render_template('lista.html', lista=catalogo.to_html())
 
 @app.route('/del')
 def delet():
@@ -70,15 +54,15 @@ def delet():
 
     #deleção usando dataframe
     # quantidade maior ou igual ao catalogo
-    if df.loc[prod_del, 'quantidade'] <= qtde_del:
-        df.drop(prod_del, axis=0, inplace=True)
+    if catalogo.loc[prod_del, 'quantidade'] <= qtde_del:
+        catalogo.drop(prod_del, axis=0, inplace=True)
     else:
-        df.loc[prod_del, 'quantidade'] = df.loc[prod_del, 'quantidade'] - qtde_del
+        catalogo.loc[prod_del, 'quantidade'] = catalogo.loc[prod_del, 'quantidade'] - qtde_del
 
     
-    df.to_csv('catalogo.csv')
-    df.to_html('catalogo.html')
-    print(df)
+    catalogo.to_csv('catalogo.csv')
+    catalogo.to_html('catalogo.html')
+    print(catalogo)
     return redirect('static/deletado.html')
 
 if __name__ == "__main__":

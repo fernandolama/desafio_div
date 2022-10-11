@@ -162,7 +162,6 @@ while True:
                             os.system('cls')
                             break
                 
->>>>>>> f6b2594537232196baf57517034da27ea13ebee4
             if opcao_venda == 'b':
                 print("Compra finalizada!\nTotal da compra: R$", total)
                 input('Aperte "Enter" para retornar ao Menu de Navegação.')

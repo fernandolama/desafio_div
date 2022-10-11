@@ -4,8 +4,8 @@
  
   <head>
     <meta charset="utf-8">
-    <title>Organico's - Deletar produto</title>
-    <link rel="stylesheet" href="../web/css/style.css">
+    <title>Organico's - Cadastrar produtos</title>
+    <link rel="stylesheet" href="..\web\css\style.css">
   </head>
     
   <body>
@@ -67,18 +67,18 @@
       </nav>
 
       <img src="../web/img/header2.png" alt="Organico's - produtos orgânicos de verdade!" width="100%">
-
+    
     </header>
 
     <div class="formulario">
-      <form action="/del" method="get">
+      <form action="/adic_carrinho" method="get">
           <fieldset class="field">
-              <legend>| Excluir produto |</legend>
+              <legend>| Adicionar ao carrinho |</legend>
               <label for="campo1">Nome:</label>
-              <input type="text" name="prod_del" id="campo1" required placeholder="Digite o nome do produto">
+              <input type="text" name="produto" id="campo1" required placeholder="Digite o nome do produto">
               <br><br>
-              <label for="campo2">Quantidade a deletar:</label>
-              <input type="number" step="1" min="1" max="99999" name="qtde_del" id="campo3" required>
+              <label for="campo2">Quantidade:</label>
+              <input type="number" step="1" min="1" max="99999" name="quantidade" id="campo2" required>
               <br><br>
               <input class="button" type="submit" value="Enviar">
               <button class="button" onclick="location.href='menu_cad.html'" type="button">Voltar</button>
@@ -91,4 +91,5 @@
     </footer>
 
   </body>
+
 </html>
