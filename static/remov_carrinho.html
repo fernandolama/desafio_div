@@ -70,17 +70,27 @@
       <img src="img/header1.jpg" alt="Organico's - produtos orgânicos de verdade!" width="100%">
     
     </header>
-    
+
     <div class="formulario">
-      <a>Produto cadastrado com sucesso!</a>
-      <br><br>
-      <button onclick="location.href='cad.html'" type="button">Voltar</button>
+      <form action="/remov_carrinho" method="get">
+          <fieldset class="field">
+              <legend>| Remover do carrinho |</legend>
+              <label for="campo1">Nome:</label>
+              <input type="text" name="produto" id="campo1" required placeholder="Digite o nome do produto">
+              <br><br>
+              <label for="campo2">Quantidade:</label>
+              <input type="number" step="1" min="1" max="99999" name="quantidade" id="campo2" required>
+              <br><br>
+              <input class="button" type="submit" value="Enviar">
+              <button class="button" onclick="location.href='../web/index.html'" type="button">Voltar</button>
+          </fieldset>
+      </form>
     </div>
 
     <footer>
-      <p class="main">Sistema Organico's | Grupo 03 | Projeto Div 2022</p>
-    </footer>
-
-  </body>
-
-</html>
+        <p class="main">Sistema Organico's | Grupo 03 | Projeto Div 2022</p>
+      </footer>
+  
+    </body>
+  
+  </html>

@@ -1,13 +1,11 @@
-
-
 <!DOCTYPE html>
 
 <html lang pt-br>
  
   <head>
     <meta charset="utf-8">
-    <title>Organico's - Cadastrar produtos</title>
-    <link rel="stylesheet" href="..\web\css\style.css">
+    <title>Organico's</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
     
   <body>
@@ -15,26 +13,26 @@
       <nav class="navbar">
 
         <div class="logo">
-          <img id="logo_img" src="../web/img/logo.png" alt="Organico's - produtos orgânicos de verdade!">
+          <img id="logo_img" src="img/logo.png" alt="Organico's - produtos orgânicos de verdade!">
         </div>
 
         <ul class="menu">
 
           <li class="list-item">
-            <a href="../web/index.html">Home</a>
+            <a href="index.html">Home</a>
           </li>
 
           <li class="list-item">
-          <a href="sobre.html">Sobre</a>
+          <a href="../static/sobre.html">Sobre</a>
           </li>
 
           <li class="list-item">
             <div class="dropdown">
               <button class="dropbtn">Cadastro</button>
                 <div class="dropdown-content">
-                  <a href="cad.html">Cadastrar produtos</a>
+                  <a href="..\static\cad.html">Cadastrar produtos</a>
                   <a href="/lista">Ver produtos cadastrados</a>
-                  <a href="del.html">Deletar produtos</a>
+                  <a href="..\static\del.html">Deletar produtos</a>
                 </div>
             </div>
           </li>
@@ -43,9 +41,10 @@
             <div class="dropdown">
               <button class="dropbtn">Vendas</button>
                 <div class="dropdown-content">
-                  <a href="#">Adicionar ao carrinho</a>
-                  <a href="#">Remover do carrinho</a>
-                  <a href="#">Finalizar venda</a>
+                  <a href="..\static\adic_carrinho.html">Adicionar ao carrinho</a>
+                  <a href="/carr">Exibir carrinho</a>
+                  <a href="..\static\remov_carrinho.html">Remover do carrinho</a>
+                  <a href="..\static\final_vend.html">Finalizar venda</a>
                 </div>
             </div>
           </li>
@@ -54,9 +53,9 @@
             <div class="dropdown">
               <button class="dropbtn">Relatório</button>
                 <div class="dropdown-content">
-                  <a href="#">Quantidade de vendas de cada produto</a>
-                  <a href="#">Dinheiro recebido - produto</a>
-                  <a href="#">Dinheiro recebido - total</a>
+                  <a href="..\static\rel_qtde_prod.html">Quantidade de vendas de cada produto</a>
+                  <a href="..\static\rel_dinh_prod.html">Dinheiro recebido - produto</a>
+                  <a href="..\static\rel_dinh_total.html">Dinheiro recebido - total</a>
                 </div>
             </div>
           </li>
@@ -68,7 +67,7 @@
         </ul>
       </nav>
 
-      <img src="../web/img/header2.png" alt="Organico's - produtos orgânicos de verdade!" width="100%">
+      <img src="img/header1.jpg" alt="Organico's - produtos orgânicos de verdade!" width="100%">
     
     </header>
 
