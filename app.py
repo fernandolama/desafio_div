@@ -65,5 +65,24 @@ def delet():
     print(catalogo)
     return redirect('static/deletado.html')
 
+@app.route("/adic_carrinho")
+def adic_carrinho():
+    argumentos = request.args.to_dict()
+    
+    return redirect('/carr')
+
+@app.route('/carr')
+def carr():
+     return render_template('carrinho.html', carrinho=carrinho.to_html())
+
+@app.route('/remov_carrinho')
+def remov_carrinho():
+    argumentos = request.args.to_dict()
+    return redirect('/carr')
+
+@app.route('/final_venda')
+def final_venda():
+    return redirect('static/vendido.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
