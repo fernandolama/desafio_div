@@ -5,11 +5,10 @@ import pandas as pd
 app = Flask(__name__)
 
 produtos = {} #{produto: [valor, quantidade]}
-precos = {}
-quantidades = {}
+prod_carrinho = {}
 
 catalogo = pd.read_csv('catalogo.csv', index_col='produto')
-print(catalogo)
+carrinho = pd.read_csv('carrinho.csv', index_col='produto')
 
 @app.route("/")
 def index():
@@ -69,6 +68,18 @@ def delet():
 def adic_carrinho():
     argumentos = request.args.to_dict()
     
+    produto = argumentos['produto']
+    quantidade = int(argumentos['quantidade'])
+    preco = produtos.get(produto[0])
+    
+    #dicionário
+    prod_carrinho[produto] = [preco, quantidade]
+
+    #dataframe
+    carrinho.loc[produto] = [preco, quantidade]
+
+    #Ajuste nas quantidades do dict produtos
+    produtos[produto] = [preco,int('quantidade')-int(quantidade)]
     return redirect('/carr')
 
 @app.route('/carr')
@@ -78,6 +89,16 @@ def carr():
 @app.route('/remov_carrinho')
 def remov_carrinho():
     argumentos = request.args.to_dict()
+    
+    produto = argumentos['produto']
+    quantidade = argumentos['quantidade']
+    preco = produtos.get(produto[0])
+
+    #dicionário
+    prod_carrinho[produto] = [preco, int('quantidade')-int((quantidade))]
+
+    #Ajuste nas quantidades do dict produtos
+    produtos[produto] = [preco,int('quantidade')+int(quantidade)]
     return redirect('/carr')
 
 @app.route('/final_venda')
