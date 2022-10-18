@@ -67,15 +67,24 @@
         </ul>
       </nav>
 
-      <img src="..\web\img\header1.jpg" alt="Organico's - produtos orgânicos de verdade!" width="100%">
+      <img src="../web/img/header1.jpg" alt="Organico's - produtos orgânicos de verdade!" width="100%">
     
     </header>
-    
+
     <div class="formulario">
-      <a>Compra concluída com sucesso!</a>
-      <br><br>
-      <button onclick="location.href='../web/index.html'" type="button">Voltar</button>
-    </div>
+        <form action="/final_vend" method="get">
+            <fieldset class="field">
+                <legend>| Deseja encerrar sua compra? |</legend>
+                <input type="radio" id="sim" name="final_vend" value="sim">
+                <label for="sim">Sim</label>
+                <input type="radio" id="nao" name="final_vend" value="nao">
+                <label for="nao">Não</label><br>
+                <br><br>
+                <input class="button" type="submit" value="Enviar">
+                <button class="button" onclick="location.href='../web/index.html'" type="button">Voltar</button>
+            </fieldset>
+        </form>
+      </div>
 
     <footer>
       <p class="main">Sistema Organico's | Grupo 03 | Projeto Div 2022</p>
