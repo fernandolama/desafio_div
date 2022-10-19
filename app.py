@@ -1,5 +1,3 @@
-from ctypes.wintypes import tagMSG
-from keyword import issoftkeyword
 from flask import Flask
 from flask import request, redirect, render_template
 import pandas as pd
@@ -25,6 +23,8 @@ for chave, valor in produtos.items():
 produtos = dicionario.copy()
 del dicionario
 print(produtos)
+
+relatorio = []
 
 @app.route("/")
 def index():
@@ -137,7 +137,9 @@ def final_vend():
             total += preco
             print(total)
 
+        relatorio.append(prod_carrinho.copy())
         catalogo.to_csv('catalogo.csv')
+        prod_carrinho.clear()
         return redirect('static/vendido.html')
     
     else:
