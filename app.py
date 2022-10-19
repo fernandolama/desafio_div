@@ -1,3 +1,4 @@
+from ctypes.wintypes import tagMSG
 from keyword import issoftkeyword
 from flask import Flask
 from flask import request, redirect, render_template
@@ -130,10 +131,11 @@ def final_vend():
     print(argumentos)
 
     if 'sim' in argumentos.values():
-        #total = 0
-        #for chave, quantidade in prod_carrinho.items():
-            #preco = float(quantidade) * float(produtos[chave])
-            #total = total + preco #total += preco'''
+        total = 0
+        for p in prod_carrinho:
+            preco = float(prod_carrinho.get(p)[0]) * int(prod_carrinho.get(p)[1])
+            total += preco
+            print(total)
 
         catalogo.to_csv('catalogo.csv')
         return redirect('static/vendido.html')
