@@ -1,3 +1,4 @@
+from ctypes.wintypes import tagMSG
 from keyword import issoftkeyword
 from flask import Flask
 from flask import request, redirect, render_template
@@ -85,7 +86,7 @@ def adic_carrinho():
                                                 
     produto = argumentos['produto']
     quantidade = int(argumentos['quantidade'])
-    preco = produtos.get(produto)[0]
+    preco = float(produtos.get(produto)[0])
     print(preco)
     #dicionário
     prod_carrinho[produto] = [preco, quantidade] 
@@ -108,8 +109,8 @@ def remov_carrinho():
     argumentos = request.args.to_dict()
     
     produto = argumentos['produto']
-    quantidade = argumentos['quantidade']
-    preco = produtos.get(produto)[0]
+    quantidade = int(argumentos['quantidade'])
+    preco = float(produtos.get(produto)[0])
 
     #dicionário    
     prod_carrinho[produto] = [preco, quantidade] 
@@ -126,12 +127,23 @@ def remov_carrinho():
 
 @app.route('/final_vend')
 def final_vend():
+    argumentos = request.args.to_dict()
+    print(argumentos)
+
+    if 'sim' in argumentos.values():
+        total = 0
+        for p in prod_carrinho:
+            preco = float(prod_carrinho.get(p)[0]) * int(prod_carrinho.get(p)[1])
+            total += preco
+            print(total)
+
+        catalogo.to_csv('catalogo.csv')
+        return redirect('static/vendido.html')
     
-    
-    
-    catalogo.to_csv('catalogo.csv')
-    
-    return redirect('static/vendido.html')
+    else:
+        prod_carrinho.clear()
+        print(prod_carrinho)
+        return redirect('web\index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
